@@ -1,4 +1,4 @@
-# LeaningR: Practicing awesomeness :D
+# LeaningR: Practicing boringness...
 
 TODO: This is for the DDA R course
 
