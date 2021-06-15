@@ -1,8 +1,6 @@
 # LeaningR: Practicing awesomeness :D
 
-TODO: Give a brief description of what your project is about
-
-This project is confusing
+TODO: This is for the DDA R course
 
 # Brief description of folder and file contents
 
