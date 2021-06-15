@@ -1,10 +1,8 @@
-TODO: Add more to the title of your project here
-
-# LeaningR:
+# LeaningR: Practicing awesomeness :D
 
 TODO: Give a brief description of what your project is about
 
-This project...
+This project is confusing
 
 # Brief description of folder and file contents
 
