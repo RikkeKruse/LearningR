@@ -1,4 +1,4 @@
-# LeaningR: Practicing boringness...
+# LeaningR: Chaos coming up
 
 TODO: This is for the DDA R course
 
