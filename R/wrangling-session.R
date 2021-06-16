@@ -64,6 +64,105 @@ nhanes_small %>%
     select(phys_active) %>%
     rename(physically_active = phys_active)
 
+## Filtering
+
+# Filter for all females
+
+nhanes_small %>%
+    filter(sex == "female")
+
+nhanes_small %>%
+    filter(sex != "female")
+
+
+# Which parcipants have a BMI equal to 25
+nhanes_small %>%
+    filter(bmi == 25)
+
+# Participants with bmi greater than or equal to 25
+nhanes_small %>%
+    filter(bmi >= 25)
+
+# Filter for two or more variables
+# BMI greater than 25 and the sex is female
+
+nhanes_small %>%
+    filter(bmi > 25 & sex == "female")
+
+
+# bmi greater than 25 or the sex is female
+
+nhanes_small %>%
+    filter(bmi > 25 | sex == "female")
+
+## Arrange the data - sorting
+# Arrange by age in ascending order
+nhanes_small %>%
+    arrange(age)
+
+# Arrange by sex in ascending order
+nhanes_small %>%
+    arrange(sex)
+
+# Arrange by age in descending order
+nhanes_small %>%
+    arrange(desc(age))
+
+nhanes_small %>%
+    arrange(desc(bmi))
+
+#Arrange by more than one variable - arrange by sex and then by age in ascending order
+
+nhanes_small %>%
+    arrange(sex, age)
+
+
+# arrange sex ascending and age descending
+nhanes_small %>%
+    arrange(sex, desc(age))
+
+## Transform or add columns
+
+# Height column should be transformed for being in cm to m
+nhanes_small %>%
+    mutate(height = height / 100)
+
+# Add a new column with logged height values
+nhanes_small %>%
+    mutate(logged_height = log(height))
+
+nhanes_small %>%
+    mutate(height = height / 100, logged_height = log(height))
+
+# Add a new column "highly active days" - yes if greater than 5, no if not
+nhanes_small %>%
+    mutate(highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
+
+# Update the existing data frame with all the new stuff that we did
+nhanes_update <- nhanes_small %>%
+    mutate(height = height / 100, logged_height = log(height), highly_active = if_else(phys_active_days >= 5, "Yes", "No"))
+
+#check
+head(nhanes_update)
+
+str(nhanes_update)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
