@@ -166,11 +166,27 @@ nhanes_small %>%
 
 
 
+## calculating summary statistics by group
+
+nhanes_small %>%
+    group_by(diabetes) %>%
+    summarise(mean_age = mean(age, na.rm = TRUE), mean_bmi = mean(bmi, na.rm = TRUE))
+
+nhanes_small %>%
+    filter(!is.na(diabetes)) %>%
+    group_by(diabetes) %>%
+    summarise(mean_age = mean(age, na.rm = TRUE), mean_bmi = mean(bmi, na.rm = TRUE)) %>%
+    ungroup()
+
+# ALtid ungroup datasæt så det kan brues igen
 
 
+#Saving datasets as files
 
+# Saving data as an .rda file in the data folder
+usethis::use_data(nhanes_small, overwrite = TRUE)
 
-
+nhanes_small
 
 
 
