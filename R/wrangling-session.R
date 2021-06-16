@@ -16,7 +16,6 @@ select(NHANES, -HeadCirc)
 # All columns starting with "BP"
 select(NHANES, starts_with("BP"))
 
-
 # Select all columns ending with "Day"
 select(NHANES, ends_with("Day"))
 
@@ -148,8 +147,22 @@ head(nhanes_update)
 str(nhanes_update)
 
 
+## Summary statistics by group
+#find max bmi in dataset
+nhanes_small %>%
+    summarise(max_bmi = max(bmi))
 
+#the above command gave us nA because the value is not available for all participants. to get the max number do this
+nhanes_small %>%
+    summarise(max_bmi = max(bmi, na.rm = TRUE))
 
+#find out how many missing values NAs) are there
+nhanes_small %>%
+    summarise(sum_na = sum(is.na(bmi)))
+
+# Calculating 2 summary statistics
+nhanes_small %>%
+    summarise(max_bmi = max(bmi, na.rm =TRUE), min_bmi = min(bmi, na.rm =TRUE))
 
 
 
