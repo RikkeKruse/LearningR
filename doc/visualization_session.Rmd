@@ -151,3 +151,36 @@ nhanes_tidied %>%
 
 ```
 
+# Changing colours
+```{r viridis}
+# Barplot to work from, with two discrete variables
+base_barplot <- nhanes_tidied %>% 
+    ggplot(aes(x = diabetes, fill = sex)) +
+    geom_bar(position = position_dodge())
+
+base_barplot
+
+base_barplot + scale_fill_viridis_d()
+
+
+base_barplot + scale_fill_viridis_d(option = "A")
+
+base_barplot + scale_fill_viridis_d(option = "H")
+
+
+# Scatterplot to work from, with three continuous variables
+base_scatterplot <- nhanes_tidied %>% 
+    ggplot(aes(x = bmi, y = bp_sys_ave, colour = age)) +
+    geom_point()
+
+base_scatterplot
+
+base_scatterplot + scale_colour_viridis_c()
+
+base_scatterplot + scale_colour_viridis_c(option = "H")
+
+
+
+
+```
+
